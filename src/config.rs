@@ -56,7 +56,6 @@ lazy_static::lazy_static! {
     static ref STATUS: RwLock<Status> = RwLock::new(Status::load());
     static ref TRUSTED_DEVICES: RwLock<(Vec<TrustedDevice>, bool)> = Default::default();
     static ref ONLINE: Mutex<HashMap<String, i64>> = Default::default();
-    pub static ref PROD_RENDEZVOUS_SERVER: RwLock<String> = RwLock::new("".to_owned());
     pub static ref PROD_RENDEZVOUS_SERVER: RwLock = RwLock::new(match option_env!("RENDEZVOUS_SERVER") {
     Some(key) if !key.is_empty() => key,
       _ => "",
